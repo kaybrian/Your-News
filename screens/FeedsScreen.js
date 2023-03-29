@@ -2,6 +2,7 @@ import { View, Text, SafeAreaView, StatusBar, TextInput, ScrollView } from 'reac
 import React from 'react'
 import { ChevronDownIcon, UserIcon, NewspaperIcon } from "react-native-heroicons/outline";
 import Categories from '../components/categories';
+import FeaturedStories from '../components/FeaturedStories';
 
 const FeedsScreen = () => {
     return (
@@ -10,7 +11,7 @@ const FeedsScreen = () => {
                 <Text className="text-lg font-bold text-[#121212]">Your News</Text>
                 <UserIcon color="#121212" size={35} />
             </View>
-            <View className="py-5 px-4 mb-4">
+            <View className="py-5 px-4 mb-2">
                 <Text className="text-xs text-[#616161] mb-2">Hey, Reader</Text>
                 <Text className="text-3xl font-Roboto text-[#121212] font-bold">Latest Updates</Text>
 
@@ -25,10 +26,15 @@ const FeedsScreen = () => {
                 </View>
             </View>
 
-            <ScrollView className="bg-white pb-36 mb-10">
+            <ScrollView className="bg-white px-2 pb-36 mb-10">
                 <Categories />
+                <View className="px-4 mt-10">
+                    <Text className="text-lg font-medium text-[#121212] ">Featured Stories</Text>
 
+                    <FeaturedStories />
+                </View>
             </ScrollView>
+
 
 
 

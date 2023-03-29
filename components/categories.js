@@ -45,10 +45,6 @@ const Categories = () => {
                     </View>
                     <Text className="text-xs mt-1 text-[#121212] font-light">Health</Text>
                 </View>
-
-
-
-
             </View>
         </ScrollView>
     )
