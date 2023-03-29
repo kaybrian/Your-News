@@ -6,7 +6,7 @@ import FeaturedStories from '../components/FeaturedStories';
 
 const FeedsScreen = () => {
     return (
-        <SafeAreaView className="bg-white pt-6 mt-3 mb-10 pb-20">
+        <SafeAreaView className="bg-white pt-6 mt-3">
             <View className="flex-row  space-x-2 items-center justify-between py-5 px-4 ">
                 <Text className="text-lg font-bold text-[#121212]">Your News</Text>
                 <UserIcon color="#121212" size={35} />
