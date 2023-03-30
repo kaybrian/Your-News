@@ -5,6 +5,7 @@ import FeedsScreen from './screens/FeedsScreen';
 import { store } from './store';
 import { Provider } from 'react-redux'
 import FetchFailed from './screens/FetchFailed';
+import ReadDetails from './screens/ReadDetails';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,12 @@ export default function App() {
           <Stack.Screen name="error" component={FetchFailed}
             options={{
               presentation: "modal",
+              headerShown: false
+            }}
+          />
+          <Stack.Screen name="readMore" component={ReadDetails}
+            options={{
+              presentation: "fullScreenModal",
               headerShown: false
             }}
           />

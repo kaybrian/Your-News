@@ -44,7 +44,6 @@ const FeedsScreen = () => {
 
                 <View className="px-4 mt-10">
                     <Text className="text-lg font-medium text-[#121212] ">Featured Stories</Text>
-                    <Text>{newsStatus}</Text>
                 </View>
                 {
                     articles.map(article => (

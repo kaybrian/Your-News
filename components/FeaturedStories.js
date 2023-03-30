@@ -1,10 +1,12 @@
-import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native';
 
 const FeaturedStories = ({article}) => {
-    console.log(article)
+    // console.log(article)
+    const navigation = useNavigation();
     return (
-        <View className="flex-row space-x-2 py-3 ">
+        <View className="flex-row space-x-2 py-3 px-4">
             <Image
                 source={
                     article.urlToImage === null
@@ -26,7 +28,14 @@ const FeaturedStories = ({article}) => {
                 </Text>
 
 
-                <TouchableOpacity className="border-b-2 border-[#121212]">
+                <TouchableOpacity
+                    className="border-b-2 border-[#121212]"
+                    onPress={() =>{
+                        navigation.navigate('readMore', {
+                            article: article
+                        })
+                    }}
+                >
                     <Text className="font-medium text-[#121212]">Read News</Text>
                 </TouchableOpacity>
             </View>
