@@ -1,18 +1,33 @@
 import { View, Text, SafeAreaView } from 'react-native'
-import React, { useEffect } from 'react'
+import React, { useEffect,useLayoutEffect } from 'react'
 import * as Animatable from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native';
 import * as Progress from 'react-native-progress';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { getNewsStatus, fetchNews } from '../features/newsFeedSlice';
 
 
 const FlashScreen = () => {
+    const dispatch = useDispatch();
+    const newsStatus = useSelector(getNewsStatus);
+
     const navigation = useNavigation();
-    useEffect(() => {
-        setTimeout(() => {
-            navigation.navigate("feeds");
-        }, 5000)
-    }, [])
+
+    useLayoutEffect(() => {
+        if (newsStatus === 'idle') {
+            setTimeout(() => {
+                console.log('fetching')
+                dispatch(fetchNews())
+            }, 5000)
+        } else if (newsStatus === 'succeeded') {
+            navigation.navigate('feeds')
+        } else if (newsStatus === 'failed') {
+            navigation.navigate('error')
+        }
+    }, [newsStatus, dispatch])
+
+    console.log(newsStatus)
     return (
         <SafeAreaView className="bg-white flex-1 justify-center items-center">
             <Animatable.Image
@@ -21,7 +36,6 @@ const FlashScreen = () => {
                 iterationCount={1}
                 className="h-96 w-96"
             />
-
             <Animatable.Text
                 animation="slideInUp"
                 iterationCount={2}
