@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios';
 
+
+// note this is a free trial version. You can get our keys bey siging up for the service
 const NewsAPI = `https://newsapi.org/v2/top-headlines?language=en&apiKey=4e21eae6b80d42af9d2c9e6505a346c4`
 
 
